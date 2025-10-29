@@ -1,0 +1,77 @@
+En esta práctica evaluable utilizaremos los conocimientos adquiridos hasta esta sesión, con el uso de estructuras selectivas e iterativas. Para ello se pide que completes estos ejercicios en ficheros fuente separados, con el nombre que se indica en cada uno.
+
+Ejercicio 1
+
+Crea un programa en un fichero llamado Practica_1_1.cs que convierta entre distintas unidades de temperatura, siguiendo estos pasos...
+
+El programa pedirá al usuario dos datos:
+
+1. Unidad de temperatura, que será un tipo char que podrá ser 'C' para grados Celsius, 'F' para grados Fahrenheit o 'K' para grados Kelvin (todas en mayúscula). Si se introduce cualquier otra unidad, se debe mostrar un mensaje indicando "Unidad incorrecta", y no se pedirá la temperatura, finalizando el programa.
+2. Temperatura (número entero) en la unidad de medida indicada anteriormente.
+
+El programa deberá:
+
+- Realizar la conversión a grados Celsius, si fuera necesario, utilizando alguna de las
+siguientes fórmulas:
+
+Fórmula conversión de Fahrenheit a Celsius, aunque no sea estrictamente
+correcta: Celsius = (Fahrenheit - 32) / 2
+Fórmula conversión de Kelvin a Celsius: Celsius = Kelvin – 273
+Si se realiza conversión de temperatura deberá mostrar un mensaje indicando la
+temperatura en grados Celsius.
+
+- Mostrar un mensaje final según el rango de temperatura en grados Celsius:
+
+Si la temperatura es inferior a 10 grados, mostrará: "Hace frío"
+Si la temperatura está entre 10 y 20 grados (inclusive), mostrará: "Hace buen tiempo"
+Si la temperatura es superior a 20 grados, mostrará: "Hace calor"
+
+Ejemplo de ejecución 1
+
+Dime una unidad de temperatura: C
+Dime una temperatura en esa unidad: 18
+Hace buen tiempo
+
+Ejemplo de ejecución 2
+
+Dime una unidad de temperatura: K
+Dime una temperatura en esa unidad: 275
+275 Kelvin son 2 Celsius
+Hace frío
+
+Ejemplo de ejecución 3
+
+Dime una unidad de temperatura: H
+Unidad incorrecta
+
+Ejercicio 2
+
+Crea un programa en un fichero llamado Practica_1_2.cs que resuelva el siguiente problema...
+
+Una editorial edita tres revistas diferentes:
+
+La revista A, que se publica cada X días.
+La revista B, que se publica cada Y días.
+La revista C, que se publica cada Z días.
+
+Diseña un programa con los siguientes requerimientos:
+
+- Pedir al usuario que introduzca cuánto valen X, Y y Z. Los tres valores deben estar entre 1 y 365 (inclusive) o de lo contrario se deben volver a pedir por separado. Es decir, pediremos X hasta que sea correcto, luego Y, y luego Z.
+- Suponiendo que las tres revistas coinciden en el kiosco el primer día del año, calcular y mostrar por pantalla qué otro(s) día(s) del mismo año coincidirán las tres revistas en el kiosco, considerando que el año tiene 365 días.
+- Sólo se consideran días, no meses.
+
+Un posible ejemplo de salida por pantalla en caso que coincidieran los días 122 y 256
+sería:
+
+Coinciden el día 122
+Coinciden el día 256
+
+NOTA: si no hay ningún día coincidente, no debe sacarse nada por pantalla.
+
+Consideraciones al realizar los ejercicios
+
+Echa un vistazo a las normas generales de calificación de los ejercicios entregables, para saber cómo deben hacerse y qué aspectos se penalizan.
+
+Para entregar
+
+Debes entregar los dos ficheros fuente .cs (NO los compilados). Puedes entregarlos sueltos o bien comprimidos en un fichero ZIP o similar llamado Practica1.zip.
