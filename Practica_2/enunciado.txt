@@ -1,0 +1,56 @@
+En esta práctica evaluable utilizaremos estructuras iterativas y selectivas combinadas, así como tratamiento de excepciones, junto con algunos de los tipos básicos que hemos visto en el Tema 3. Para ello se pide que completes estos ejercicios en ficheros fuente separados, con el nombre que se indica en cada uno.
+
+Ejercicio 1
+
+Crea un programa en un fichero llamado Practica_2_1.cs que le pida al usuario:
+
+- La altura de una figura (entero)
+- El carácter con el que dibujarla o rellenarla (tipo "char")
+
+Con ello deberá dibujar una figura como esta, con tantas alturas como haya indicado el usuario, y con el símbolo de relleno que haya dicho (en este caso, se supone que el usuario ha elegido altura 5 y relleno con asteriscos):
+
+*        *
+**      **
+***    ***
+****  ****
+**********
+
+Ejercicio 2
+
+Crea un programa en un fichero llamado Practica_2_2.cs en el que vas a calcular tu nota del primer trimestre:
+
+- Le pediremos al usuario cuántas prácticas ha realizado
+- Después, le pediremos tantas notas de prácticas como haya dicho. Cada nota de prácticas debe ser un número real válido entre 0 y 10. Deberemos comprobarlo usando excepciones e "if" y, si no cumple los requisitos, lo volveremos a pedir.
+- A continuación, le pediremos la nota del examen final de evaluación (que también deberemos comprobar que sea válida y entre 0 y 10).
+- Finalmente, mostraremos la nota final, como el 70% del examen más el 30% de la media de prácticas. Si el examen no llega al 4, o alguna nota de prácticas no llega al 3, o la media de prácticas no llega al 5, la nota final será como mucho de 4 (se deberá escoger entre el menor valor entre la nota calculada y 4). Puedes emplear la función Math.Min en este paso si lo consideras útil.
+
+La nota final se mostrará redondeada a 2 decimales
+
+Ejemplos de funcionamiento:
+
+Indica cuántas prácticas has realizado: 4
+Introduce la nota de tus 4 prácticas:
+6
+7
+8
+9
+Nota del examen: 7,2
+Tu nota final es 7.29
+-------------------------------------------
+Indica cuántas prácticas has realizado: 3
+Introduce la nota de tus 3 prácticas:
+6
+12
+Nota incorrecta, introdúcela de nuevo:
+10
+8
+Nota de examen: 3,25
+Tu nota final es 4.00
+
+Consideraciones al realizar los ejercicios
+
+Echa un vistazo a las normas generales de calificación de los ejercicios entregables, para saber cómo deben hacerse y qué aspectos se penalizan.
+
+Para entregar
+
+Debes entregar los dos ficheros fuente .cs (NO los compilados). Puedes entregarlos sueltos o bien comprimidos en un fichero ZIP o similar llamado Practica2.zip.
