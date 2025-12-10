@@ -1,0 +1,90 @@
+En esta práctica evaluable utilizaremos estructuras estáticas (arrays, structs y cadenas de texto). Completa los siguientes ejercicios en ficheros fuente separados, con el nombre que se indica en cada uno.
+
+Ejercicio 1 (7 puntos)
+
+Crea un programa en un fichero llamado Practica_3_1.cs que gestione un array sobredimensionado de contactos, capaz de almacenar hasta 50 contactos. Cada contacto está compuesto por una estructura para almacenar los siguientes datos. Elige el tipo de dato que mejor se ajuste a cada caso:
+
+- nombre y apellidos (todo junto en un solo texto)
+- dirección
+- teléfono (texto)
+- ciudad
+- fecha de nacimiento: otra estructura para almacenar día, mes y año de nacimiento
+
+El programa presentará continuamente al usuario un menú para elegir estas opciones:
+
+1. Añadir contacto: Solicitar por consola los datos correspondientes al contacto e introducirlo en la primera posición libre al final de las existentes. 
+2. Borrar contacto: Primero se mostrará un listado de los contactos de la agenda y se pedirá al usuario que elija la posición a borrar.
+3. Mostrar contactos de una ciudad: El usuario escribirá un nombre de ciudad y se mostrarán todos los contactos que sean de esa ciudad (ignorando mayúsculas o minúsculas, para ello deberás usar algo de la sesión 11). Si no hay contactos coincidentes se mostrará el mensaje "No existen contactos de esa ciudad".
+4. Mostrar contactos por año: El usuario escribirá un año de nacimiento y se mostrarán los contactos de ese año. Si no hay contactos de ese año se mostrará el mensaje "No se encontraron contactos de ese año".
+5. Ordenar array por nombre: Se ordenará el array por los nombres de los contactos, alfabéticamente de menor a mayor (usando lo que se verá en la sesión 12) y se mostrarán ordenados en pantalla.
+6. Salir del programa (también puede ser la opción 0, si lo prefieres)
+
+A la hora de mostrar los datos de cada contacto, se mostrarán en una sola línea, separados por comas. Por ejemplo:
+
+Juan Pérez Gómez, C/ La Huerta 23, 611223344, San Vicente del Raspeig, 07/01/1998
+
+Además, se deben controlar los siguientes errores, y volver a pedir los datos al usuario si no son correctos:
+
+- Ningún dato textual de los contactos (nombre, dirección, etc) puede estar vacío
+- La fecha de nacimiento debe ser válida. Por simplificar, se asumirá que todos los meses tienen 31 días. El año de nacimiento no puede ser anterior a 1950 ni posterior a 2020.
+- A la hora de borrar un contacto, la posición a borrar debe ser una posición válida: no puede ser negativa, ni exceder de la cantidad de elementos que haya en el array en ese momento.
+
+Otras consideraciones sobre el ejercicio:
+
+- Cuando le pidamos al usuario la posición a borrar, hay que tener en cuenta que él las contará a partir de la 1, aunque en el array se almacenen a partir de la 0. Deberemos hacer esa "traducción" en nuestro programa para acceder a la posición correcta. Es decir, si el usuario quiere borrar la posición 3, nosotros deberemos acceder a la posición 2 del array para borrarla.
+- En la opción 1 (añadir contacto) se tendrán 0,5 puntos adicionales si pedimos la fecha de nacimiento en una sola línea (día/mes/año) y luego con "Split" partimos los datos y guardamos cada cosa en el campo correspondiente del struct. Para hacer esto necesitas conceptos que se ven en la sesión 11.
+
+Ejercicio 2 (3 puntos)
+
+Crea un programa en un fichero llamado Practica_3_2.cs que lea una matriz de enteros (N x M) y determine si tiene algún elemento Mi,j que sea mínimo en su fila y máximo en su columna, es decir, si comparamos el valor de Mi,j con cualquier elemento de su misma columna (Mk,j), y de su misma fila (Mi,k), se cumple que:
+
+Mk,j < Mi,j < Mi,k
+
+El programa mostrará por pantalla las coordenadas i,j de los elementos buscados. En caso que no hubiera elementos que cumplan con las condiciones, se deberá mostrar un mensaje que lo indique.
+
+Para realizar el programa, primero le pediremos al usuario que indique el número de filas (N) y de columnas (M) de la matriz. Con ello crearemos un array rectangular de enteros de ese tamaño. Después le pediremos que introduzca los valores de cada casilla y los almacenaremos en su lugar correspondiente. Finalmente, mostraremos por pantalla los valores solicitados.
+
+Por ejemplo, si la matriz resultante es esta matriz 3 x 4:
+
+5 6 7 8
+1 2 3 4
+2 3 4 5
+3 4 5 6
+
+Podemos ver que el número 5 de la primera casilla es mínimo en su fila y máximo en su columna. La salida por pantalla debería ser: "Elemento 5 en posición 1, 1" (recuerda que debemos indicar las posiciones comenzando por la 1). 
+
+Aquí tienes otro ejemplo:
+
+14 22 13 27
+15 16 17 18
+34 15 16 17
+44 25 36 26
+12 15 16 17
+
+La solución debería ser "Elemento 25 en posición 4, 2".
+
+En este otro caso no hay ningún número que cumpla la condición, por lo que el mensaje debería ser "No se han encontrado elementos que cumplan la condición".
+
+5 2 6 -8 2
+3 -5 9 14 23
+-56 34 23 67 5
+-6 2 0 5 -7
+
+En general habrá uno o ninguno, salvo que haya varios con el mismo valor que cumplan las condiciones.
+
+Algunas pistas para intentar resolver este ejercicio:
+
+- Una primera forma de intentar resolver este ejercicio es, una vez ya tenemos el array relleno, ir recorriéndolo por filas. En cada fila buscamos el mínimo y nos guardamos su posición k. Para esa posición k vemos si ese número es el máximo de la columna k y si es así, lo sacamos por pantalla. Podemos poner un booleano a true cuando encontremos un número que cumpla todo y, al final, si el booleano sigue siendo false, es que no hemos encontrado ningún número que cumpla las condiciones.
+- Una segunda alternativa consiste en, con el array relleno, construir dos arrays de booleanos del mismo tamaño (N x M), y ponerlos todo a false. Uno de los arrays nos servirá para guardarnos el mínimo de cada fila (pondremos a true la casilla de cada fila que sea mínima), y el otro para el máximo de cada columna (pondremos a true la casilla de cada columna que guarde el valor máximo). Al final, recorremos en paralelo ambos arrays y si la misma casilla está a true en ambos, es que hay un número en esa casilla que es mínimo de su fila y máximo de su columna.
+
+Otras consideraciones sobre este ejercicio:
+
+- Asumiremos que todos los datos que va a escribir el usuario serán válidos
+- Se tendrán 0,5 puntos adicionales si pedimos que los datos se introduzcan de forma más cómoda: después de leer las filas y columnas (N y M), leeremos separados por espacios los números de cada fila, haremos "Split" y los guardaremos cada uno en su casilla. Nuevamente, para esto necesitas conceptos que se ven en la sesión 11.
+Consideraciones al realizar los ejercicios
+
+Echa un vistazo a las normas generales de calificación de los ejercicios entregables, para saber cómo deben hacerse y qué aspectos se penalizan.
+
+Para entregar
+
+Debes entregar los dos ficheros fuente por separado, o comprimidos en un fichero Practica3.zip o similar.
