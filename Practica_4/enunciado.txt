@@ -1,0 +1,23 @@
+Para esta práctica deberéis partir todos de la solución publicada para la Práctica 3, que podéis descargar desde este enlace en GitHub. Se pide que reescribáis el ejercicio Practica_3_1.cs en un fichero Practica4.cs que descomponga su código en funciones. Al menos debéis definir las siguientes:
+
+- MostrarMenu: no recibirá ningún parámetro, y se dedicará a mostrar el menú de opciones, recoger la opción que elige el usuario y devolver (return) esa opción elegida.  Invocaremos a esta función desde el Main, al inicio del do..while, cuando se muestra el menú y se recoge la opción.
+- NuevoContacto: recibirá como parámetros el array de contactos y la cantidad (esta última pasada por referencia), y se encargará de realizar todo el código de la opción 1 del menú (pedir los datos, comprobar la validez y realizar la inserción en el array). En el Main, desde dicha opción 1 simplemente nos limitaremos a invocar a esta función con los dos parámetros adecuados para que haga su tarea.
+- BorrarContacto: recibirá como parámetros el array de contactos y la cantidad (pasada por referencia), y realizará lo mismo que hacía la opción 2 del menú. Invocaremos a esta función desde dicha opción 2.
+- MostrarContactosCiudad: recibirá como parámetros el array de contactos, la cantidad (por valor) y un nombre de ciudad, y realizará lo mismo que la opción 3 del menú, mostrando los contactos coincidentes en pantalla, o el mensaje "No existen contactos de esa ciudad". En el Main le pediremos al usuario que indique un nombre de ciudad y llamaremos después a la función con los datos necesarios.
+- MostrarContactosAnyo: recibirá como parámetros el array de contactos, la cantidad (por valor) y un número de año, y realizará lo mismo que la opción 4 del menú, mostrando contactos coincidentes o mensaje de error correspondiente. En el Main pediremos al usuario que indique un año e invocaremos a esta función con los parámetros adecuados.
+- OrdenarContactos: recibirá como parámetro el array de contactos y la cantidad (por valor) y hará lo mismo que la opción 5 del menú.
+
+En el caso de que alguna función sea demasiado larga, o alguna tarea se repita en varios puntos del programa, se deberá crear una función aparte para modularizar esa tarea. Puede resultar adecuada, por ejemplo, una función que muestre los datos del contacto i del array (nombre, dirección, etc), y usarla desde las funciones MostrarContactosCiudad, MostrarContactosAnyo u OrdenarContactos ya que todas muestran un listado con información similar de cada contacto.
+
+Algunas indicaciones adicionales:
+
+- Echa un vistazo a la solución del Ejercicio_05a_12.cs de la sesión 13. La idea es hacer algo similar en este en cuanto a división del código en funciones
+- A la hora de validar datos correctos (por ejemplo, la fecha de nacimiento), utiliza TryParse en lugar de try..catch.
+
+Consideraciones al realizar los ejercicios
+
+Echa un vistazo a las normas generales de calificación de los ejercicios entregables, para saber cómo deben hacerse y qué aspectos se penalizan. A partir de esta práctica también se incluye una penalización por la incorrecta modularización del código o la repetición innecesaria del mismo.
+
+Para entregar
+
+Debes entregar el fichero fuente, solo o comprimido en un fichero Practica4.zip o similar.
