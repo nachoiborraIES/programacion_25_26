@@ -1,0 +1,74 @@
+Vamos a desarrollar una aplicación que simule el comportamiento de ciertos elementos domóticos en un hogar. Crearemos para ello un proyecto de consola en Visual Studio llamado HogarDomotico.
+
+1. Estructura de clases (2,5 puntos)
+
+Partiremos de una clase padre abstracta llamada ElementoDomotico, que será la base con la que crearemos el resto de elementos domóticos que usaremos. Como único atributo tendremos el nombre del elemento, junto con un constructor que le dé valor, getters y setters. Añadiremos un método abstracto llamado Mostrar, que deberán implementar sus clases hija.
+
+A partir de esta clase, definiremos distintos tipos de elementos domóticos:
+
+- Luz: subtipo de elemento domótico con un booleano indicando si la luz está encendida o apagada. Añadiremos un constructor que por defecto deje la luz apagada
+- Puerta: subtipo de elemento domótico con un booleano que indicará si está abierta o cerrada. Añadiremos el constructor donde por defecto la puerta estará cerrada, y métodos para abrir/cerrar la puerta y para consultar si está abierta o cerrada.
+- Horno: subtipo de elemento domótico con un booleano indicando si está encendido o apagado, junto con la temperatura a la que está funcionando, en ºC. En el constructor lo inicializaremos apagado, y añadiremos un getter/setter para la temperatura. La temperatura del horno no podrá ser inferior a 0ºC ni superior a 250ºC.
+- Calefaccion: subtipo de elemento domótico con un booleano indicando si está encendida o apagada, y la temperatura a la que funciona en ºC. . En el constructor apagaremos la calefacción e inicializaremos la temperatura, y añadiremos el getter/setter para controlar la temperatura. La temperatura de la calefacción no podrá ser inferior a 15ºC ni superior a 30ºC.
+
+NOTA: observa que las clases Horno y Calefaccion comparten muchas cosas en común. Valora la necesidad de crear una clase padre de ambas (abstracta) que centralice todo el comportamiento en común.
+
+Interfaces (1,5 puntos)
+
+Parte del comportamiento de los elementos domóticos es común. Por ejemplo, la luz, el horno y la calefacción se pueden encender y apagar. Para gestionar esto vamos a crear una interfaz llamada IEncendible, con tres métodos:
+
+- void Encender(): encenderá el aparato
+- void Apagar(): apagará el aparato
+- bool Consultar(): consultará el estado actual del aparato
+
+Haremos después que las clases Luz, Horno y Calefaccion implementen esta interfaz para encenderse/apagarse/consultar el estado del elemento.
+
+La clase GestorDomotico (2,5 puntos)
+
+Crearemos ahora una clase GestorDomotico, que como atributo tendrá un array con 6 elementos domóticos (array polimórfico de 6 objetos de tipo ElementoDomotico).
+
+En el constructor, inicializaremos el array con estos elementos:
+
+- Una puerta llamada "Puerta principal"
+- Otra puerta llamada "Puerta garaje"
+- Una luz llamada "Luz salón"
+- Otra luz llamada "Luz cocina"
+- Un horno llamado "Horno cocina", inicialmente apagado y a 0ºC
+- Una calefacción llamada "Calefacción central", inicialmente apagada y a 20ºC
+
+Además, la clase tendrá los siguientes métodos:
+
+- ElementoDomotico GetElemento(int posicion): devolverá el elemento domótico de la posición indicada en el array. Asumiremos que esa posición va a ser correcta (entre 0 y 5)
+- MostrarEstado(): mostrará el estado actual de los elementos domóticos, con el formato que se indicará a continuación, en la esquina superior izquierda de la consola
+
+Puedes añadir cualquier otro método que consideres relevante en esta clase.
+
+El programa principal (2,5 puntos)
+
+Desde el programa principal haremos lo siguiente:
+
+- Crearemos una instancia de GestorDomotico, que a su vez inicializará el array con los elementos domóticos
+- Pintaremos en la parte inferior de la consola (a partir de la fila 15, por ejemplo), un menú de opciones como el que se muestra a continuación, con estas opciones:
+
+A = abrir puerta principal
+B = cerrar puerta principal
+C = abrir puerta garaje
+D = cerrar puerta garaje
+E = encender luz salón
+F = apagar luz salón
+G = encender luz cocina
+H = apagar luz cocina
+I = encender horno
+J = apagar horno
+K = subir temperatura horno 1ºC (hasta el máximo permitido de 250ºC)
+L = bajar temperatura horno 1ºC (hasta el mínimo permitido de 0ºC)
+M = encender calefacción
+N = apagar calefacción
+O = subir temperatura calefacción 1ºC (hasta el máximo permitido de 30ºC)
+P = bajar temperatura calefacción 1ºC (hasta mínimo permitido de 15ºC)
+Q = Apagar todo (todo lo que sea IEncendible, aquí te puede venir bien añadir algún método ApagarTodo() en la clase GestorDomotico).
+S = salir
+
+- Entrará en un bucle donde se le pedirá al usuario que pulse una de las teclas anteriores (recogidas con Console.ReadKey), ejecutaremos la acción correspondiente y luego llamaremos al método MostrarEstado del GestorDomotico para que vuelva a pintar el estado actual de la casa.
+
+NOTA: es posible que el código para gestionar todas las opciones del menú exceda un poco del tamaño recomendable, no es problema si no pasamos de unas 100 líneas de código en este caso.
