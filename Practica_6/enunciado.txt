@@ -1,0 +1,31 @@
+En esta práctica vamos a tomar la Práctica 4 (agenda de contactos) y vamos a transformarla en una lista de objetos de tipo Contacto. Deberás partir de la solución publicada aquí en GitHub.
+
+Para ello, crea un proyecto Visual Studio llamado AgendaContactos como paso previo, y sigue estas instrucciones.
+
+Creación de la clase Contacto (1 punto)
+
+En primer lugar, crea una clase Contacto en su propio fichero, que sustituya a los structs creados en la práctica anterior. Añade tantos atributos (privados) como campos tengan los structs (nombre, teléfono, día, mes y año de nacimiento...), y un constructor que les dé valor, junto con un método "ToString" que saque por pantalla la información de un contacto (en una línea) y los getters/setters y métodos que quieras o necesites.
+
+Gestión de contactos (6,5 puntos)
+
+Crea ahora una clase GestionContactos que tenga como atributo una lista genérica de contactos. En el constructor inicializa la lista vacía, y luego añade los siguientes métodos:
+
+- NuevoContacto: realizará la misma labor que la antigua función NuevoContacto, pero sobre la lista de contactos que tiene como atributo esta clase. 
+- BorrarContacto: realizará la misma labor que la antigua función BorrarContacto sobre la lista de contactos.
+- MostrarContactosCiudad: recibirá como parámetro un nombre de ciudad, y realizará la misma tarea que MostrarContactosCiudad en el código antiguo. En el Main le pediremos al usuario que indique un nombre de ciudad y llamaremos después a la función con los datos necesarios.
+- MostrarContactosAnyo: recibirá como parámetro un número de año y realizará la misma tarea que la función MostrarContactosAnyo en el código antiguo. En el Main pediremos al usuario que indique un año e invocaremos a esta función.
+- OrdenarContactos: realizará la misma tarea que la función OrdenarContactos en el código antiguo, pero ordenando los objetos Contacto de la lista.
+
+Las funciones que necesiten mostrar datos de contactos por pantalla usarán el método ToString que hayamos definido en la clase Contacto.
+Ten en cuenta que ninguna de estas funciones necesita ya el array de contactos como parámetro, ni la cantidad, ya que trabajarán sobre la lista de contactos propia de la clase en la que están.
+
+El programa principal (2,5 puntos)
+
+Desde el programa principal:
+
+- Crearemos una instancia de GestionContactos para inicializar la lista de contactos
+- Mostraremos al usuario repetidamente el menú de opciones, invocando al método correspondiente de GestionContactos en cada caso.
+
+Para entregar
+
+El proyecto completo Visual Studio, comprimido en un fichero ZIP/RAR.

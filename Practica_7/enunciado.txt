@@ -1,0 +1,42 @@
+Se pide crear un proyecto en Visual Studio llamado LigaBasket que permitirá gestionar los partidos y clasificación de una liga de baloncesto. Las clases que necesitaremos serán éstas: 
+
+- Equipo: almacenaremos los datos de cada equipo, que serán su nombre, el número de partidos ganados, el número de partidos perdidos, el número de puntos a favor y el número de puntos en contra. En el constructor asignaremos el nombre y pondremos los partidos ganados y perdidos, y los puntos, a cero. Añadiremos los getters/setters que necesitemos, y métodos para incrementar los partidos ganados y perdidos, y los puntos a favor y en contra.
+- Partido: de cada partido guardamos los dos equipos que intervienen (objetos de tipo Equipo), y los puntos que anota cada uno.
+
+Almacenaremos en un fichero de texto un listado con los nombres de los equipos que participan en la liga. En los recursos de esta tarea se proporciona un fichero de ejemplo. Al inicio del programa principal, leeremos este archivo y crearemos con él una lista de equipos (inicialmente todos tendrán sus datos numéricos a cero).
+
+Además, habrá un segundo archivo con los partidos que han jugado los equipos. También tienes uno de ejemplo en los recursos de la tarea. Después de inicializar la lista de equipos, leeremos este archivo e iremos almacenando cada partido en una lista de partidos, y procesando cada partido: leeremos los equipos que intervienen y actualizaremos con ello sus partidos ganados/perdidos y sus puntos a favor o en contra.
+
+A continuación, el usuario podrá añadir nuevos partidos a la lista, introduciendo los datos de cada partido en una línea, con el mismo formato que en el archivo de partidos.
+
+La introducción de partidos finalizará cuando el usuario escriba una cadena vacía. Hasta entonces, deberemos verificar que la línea introducida: 
+
+- Tiene el formato adecuado
+- Contiene nombres de equipos que existen en la lista 
+- Los puntos deben ser números válidos y comprendidos entre 0 y 200. 
+- Si es un partido correcto y los nombres de equipos existen en el listado, añadimos el partido a la lista de partidos y actualizaremos los datos de los equipos que intervienen. De lo contrario, descartaremos el partido y le pediremos el siguiente al usuario, informándole de que ese partido no es correcto. 
+
+Al finalizar la introducción de partidos, mostraremos por pantalla la lista ordenada de equipos. La ordenación deberemos hacerla según este criterio:
+
+- Primero irán los equipos que más partidos han ganado
+- Si dos equipos han ganado los mismos partidos, irá primero el que tenga más diferencia entre puntos a favor y puntos en contra
+- Si este segundo criterio también es igual, irá primero el equipo que más puntos a favor tenga
+- Si sigue habiendo empate, devolveremos 0 y los dos equipos irán uno tras otro.
+
+El formato de salida debe ser el siguiente:
+
+Nombre equipo   ganados   perdidos   puntos_favor   puntos_contra
+
+Por ejemplo:
+
+Baskonia         6     2     562   369
+Joventut         5     3     601   457
+Breogan          5     3     580   530
+...
+
+Tras mostrar el listado ordenado de equipos, volcaremos al fichero de partidos la lista actualizada de partidos, respetando el formato original, para poderla cargar actualizada la próxima vez.
+
+Para entregar:
+
+Deberás entregar el proyecto Visual Studio comprimido en un archivo ZIP o similar. El archivo ZIP se llamará Practica_8_1.zip
+

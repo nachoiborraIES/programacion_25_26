@@ -1,0 +1,7 @@
+﻿Baskonia;98;Barcelona;94
+Real Madrid;70;Valencia Basket;76
+Joventut;80;Breogan;75
+Bilbao Basket;68;Unicaja;66
+Lenovo Tenerife;69;Baxi Manresa;85
+Real Madrid;87;Baskonia;78
+Breogan;75;Lenovo Tenerife;70
