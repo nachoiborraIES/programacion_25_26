@@ -1,0 +1,38 @@
+Se pide desarrollar una aplicación Windows Forms llamada BibliotecaMusica, que permita gestionar una lista de canciones con sus autores. Seguiremos los pasos que se detallan a continuación.
+
+Clases a desarrollar (1 punto)
+
+Tendremos dos clases en el proyecto:
+
+- Clase Autor para representar los autores de las canciones. Guardaremos el nombre del autor, y un booleano indicando si es o no un grupo. Asignaremos los dos datos en el constructor, y los getters/setters que necesites. Además, redefiniremos los métodos Equals y GetHashCode para comparar autores, de modo que dos autores serán iguales si tienen el mismo nombre.
+- Clase Cancion para representar las canciones. Guardaremos el título de la canción, los minutos de duración, los segundos y el autor de la misma (objeto de tipo Autor). En el constructor asignaremos los cuatro parámetros, y definiremos al menos los setters de minutos y segundos para asegurarnos de que los minutos sean mayores o iguales a 0, y que los segundos estén entre 0 y 59 (inclusive). Si el valor se sale de rango, se le asignará automáticamente el límite más cercano. Por ejemplo, si ponemos -3 minutos se dejarán 0 minutos, y si ponemos 75 segundos lo dejaremos en 59. 
+
+Diseño de la ventana principal (1 punto)
+
+La ventana o formulario principal se llamará BibliotecaMusica (renombraremos el archivo Form1), y tendrá una apariencia similar a ésta:
+
+- En la parte izquierda hay un ListBox, que almacenará objetos de tipo Cancion
+- En la parte superior derecha hay un formulario para añadir canciones, indicando su título, minutos, segundos y autor (tres TextBox y un ComboBox, este último para los autores), junto con el botón para Añadir la canción a la lista
+- En la parte inferior derecha hay un GroupBox que agrupa los controles para filtrar canciones: un cuadro de texto y etiqueta para indicar el límite máximo de minutos de las canciones a buscar, y un desplegable (ComboBox) para elegir el grupo, junto con los botones para Aplicar Filtros y Borrar Filtros
+- Definiremos el FormBorderStyle del formulario como FixedSingle para que no se pueda redimensionar, y ocultaremos el botón de maximizar.
+
+Comportamiento del programa (8 puntos)
+
+El programa debe funcionar de la siguiente forma:
+
+- (1 punto) Al iniciarse, leerá el archivo con los datos de los autores y creará con él una lista de autores (objetos de tipo Autor), que volcará en los dos desplegables de la derecha. Para ello deberás implementar un método estático llamado CargarAutores en la clase Autor, que devuelva el listado de autores leído del fichero. A continuación tienes un ejemplo de cómo puede ser el archivo de autores: indicamos en cada línea el nombre del autor, y un 0 o 1 dependiendo de si es un solista o un grupo.
+
+Metallica;1
+Loren Allred;0
+Zane Williams;0
+Beatles;1
+
+- (1 punto) También al iniciar el programa, intentaremos leer un fichero JSON llamado canciones.json, por serialización, y obtener de él un listado de canciones. Si el fichero no existe, crearemos una lista de canciones vacía para empezar. Para ello implementaremos un método CargarCanciones en la clase Cancion.
+- (1,5 puntos) Al pulsar el botón Añadir, comprobaremos si los cuatro campos están rellenos: título, minutos, segundos y autor. Si alguno está vacío mostraremos el mensaje de error "Los campos no pueden estar vacíos". Si todo está relleno, asumiremos que es correcto y crearemos un objeto de tipo Cancion, que añadiremos al listado.
+- (1 punto) Al cerrar el formulario se guardará en un fichero llamado canciones.json el listado de canciones actualizado, mediante serialización JSON. Para ello implementarás un método estático llamado GuardarCanciones en la clase Cancion. Llamaremos a este método desde el evento de cierre del formulario.
+- (2 puntos) Al pulsar el botón de Aplicar Filtros se filtrarán en el listado las canciones que cumplan los criterios de filtrado (duración máxima en minutos y autor seleccionados). Si alguno de los dos campos no está seleccionado, se asume que no importa. Por ejemplo, si sólo elegimos el grupo "Metallica", buscamos canciones de Metallica, sea cual sea su duración. Si, después de aplicar un filtro (por ejemplo, canciones de Metallica), aplicamos otro (por ejemplo, canciones de menos de 5 minutos), los filtros NO se acumularán, sino que se aplicarán por separado sobre el listado completo de canciones.
+- (1,5 puntos) Al pulsar el botón de Borrar Filtros se eliminará el filtrado aplicado anteriormente, se borrará el contenido de los campos de filtrado y se mostrarán de nuevo todas las canciones en el ListBox. Es IMPORTANTE, entonces, mantener las canciones en una lista aparte (objeto de tipo List) y volcar al ListBox sólo las que se necesiten en cada momento. 
+
+Para entregar:
+
+Deberás entregar el proyecto Visual Studio comprimido en un archivo ZIP o similar
